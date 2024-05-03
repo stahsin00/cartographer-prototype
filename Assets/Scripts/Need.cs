@@ -4,4 +4,6 @@ public abstract class Need
     public float Current { get; protected set; }
 
     public abstract void Decay();
+
+    public abstract float ScoreNeed();
 }
