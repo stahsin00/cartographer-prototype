@@ -2,7 +2,7 @@ using System;
 
 public class Energy : Need
 {
-    public Energy() {
+    public Energy() : base() {
         Type = "Energy";
         Current = 1f;
     }

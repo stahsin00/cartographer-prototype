@@ -11,6 +11,11 @@ public abstract class Need
         protected set => current = Math.Clamp(value, 0, 1);
     }
 
+    public Need()
+    {
+        TimeTickSystem.Instance.OnTick += Decay; // TODO : unsubscribe
+    }
+
     public virtual void Recover(float amount) {
         Current += amount;
     }

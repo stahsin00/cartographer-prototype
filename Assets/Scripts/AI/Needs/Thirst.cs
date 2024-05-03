@@ -4,7 +4,7 @@ public class Thirst : Need
 {
     private const float DECAY_RATE = 0.001f;
 
-    public Thirst() {
+    public Thirst() : base() {
         Type = "Thirst";
         Current = 1f;
     }
