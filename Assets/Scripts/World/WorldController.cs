@@ -43,7 +43,7 @@ public class WorldController : MonoBehaviour
 
 				tileGO.name = "Tile_" + x + "_" + y;
 				tileGO.transform.position = new Vector3(tile.X, tile.Y, 0);
-				tileGO.transform.SetParent(this.transform, true);
+				tileGO.transform.SetParent(transform, true);
 
 				SpriteRenderer sr = tileGO.AddComponent<SpriteRenderer>();
 				sr.sprite = floorSprite;
