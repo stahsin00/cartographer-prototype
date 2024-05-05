@@ -30,9 +30,40 @@ public class Agent : Entity, IInteractable
         if (nextTask.Count > 0) {
             currentTask = nextTask.Dequeue();
         } else {
-            
+            DecideBestAction(WorldController.Instance.GetAdvertisements());
         }
     }
+
+    public void DecideBestAction(List<Advertisement> actions)
+        {
+            float score = 0f;
+            int nextBestActionIndex = 0;
+            
+            for (int i = 0; i < actions.Count; i++)
+            {
+                float curScore = ScoreAdvertisement(actions[i]);
+                if (curScore > score)
+                {
+                    nextBestActionIndex = i;
+                    score = curScore;
+                }
+            }
+
+            currentTask = actions[nextBestActionIndex].Task;
+        }
+
+    public float ScoreAdvertisement(Advertisement action)
+        {
+            // TODO : placeholder
+            float score = 1f;
+            for (int i = 0; i < action.Rewards.Count; i++)
+            {
+                float rewards = action.Rewards[i].Amount;
+                score += rewards;
+            }
+
+            return score;
+        }
 
     public List<Advertisement> GetAdvertisements()
     {

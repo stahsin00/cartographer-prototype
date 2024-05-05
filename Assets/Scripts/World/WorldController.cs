@@ -147,4 +147,8 @@ public class WorldController : MonoBehaviour
 
         return new Color(x_, y_, z_, 1);
     }
+
+    public List<Advertisement> GetAdvertisements() {
+        return null;
+    }
 }
