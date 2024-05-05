@@ -2,10 +2,10 @@ using System.Collections.Generic;
 
 public class Advertisement
 {
-    public Task Task { get; private set; }
+    public Interaction Task { get; private set; }
     public List<Reward> Rewards { get; private set; }
 
-    public Advertisement(Task task)
+    public Advertisement(Interaction task)
     {
         Task = task;
         Rewards = new List<Reward>();

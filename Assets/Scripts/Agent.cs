@@ -2,15 +2,15 @@ using System.Collections.Generic;
 
 public class Agent : Entity, IInteractable
 {
-    public Task currentTask;
-    private Queue<Task> nextTask;
+    public Interaction currentTask;
+    private Queue<Interaction> nextTask;
 
     public NeedManager needManager;
 
     List<Advertisement> advertisements;
 
     public Agent() {
-        nextTask = new Queue<Task>();
+        nextTask = new Queue<Interaction>();
 
         needManager = new NeedManager();
 
@@ -20,7 +20,7 @@ public class Agent : Entity, IInteractable
 
         advertisements = new List<Advertisement>();
 
-        Advertisement advertisement = new Advertisement(new Task("Chat"));
+        Advertisement advertisement = new Advertisement(new Interaction("Chat"));
         advertisement.AddReward(new Reward("Social", 5f));
         advertisements.Add(advertisement);
     }
