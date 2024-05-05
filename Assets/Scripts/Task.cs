@@ -1,8 +1,8 @@
-public class AgentAction
+public class Task
 {
     public string Name { get; private set;}
 
-    public AgentAction(string name) {
+    public Task(string name) {
         Name = name;
     }
 }

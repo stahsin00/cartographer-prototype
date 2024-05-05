@@ -239,6 +239,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1585684112}
   - component: {fileID: 1585684111}
+  - component: {fileID: 1585684113}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -259,6 +260,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   floorSprite: {fileID: 21300000, guid: c78ce0e17b2087e49a4e3a0cc350b4a5, type: 3}
+  blockSprite: {fileID: 0}
+  grassBlockSprite: {fileID: 0}
 --- !u!4 &1585684112
 Transform:
   m_ObjectHideFlags: 0
@@ -274,6 +277,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1585684113
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1585684110}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b56c1229ca8d35146ab0f9dfd9a3e626, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

@@ -2,15 +2,15 @@ using System.Collections.Generic;
 
 public class Agent : Entity, IInteractable
 {
-    public AgentAction currentAction;
-    private Queue<AgentAction> nextAction;
+    public Task currentTask;
+    private Queue<Task> nextTask;
 
     public NeedManager needManager;
 
     List<Advertisement> advertisements;
 
     public Agent() {
-        nextAction = new Queue<AgentAction>();
+        nextTask = new Queue<Task>();
 
         needManager = new NeedManager();
 
@@ -19,11 +19,19 @@ public class Agent : Entity, IInteractable
         needManager.AddNeed(new Energy());
 
         advertisements = new List<Advertisement>();
-        advertisements.Add(new Advertisement(new Queue<AgentAction>(new AgentAction[] {new AgentAction("Chat")}), "Social", 5f));
+
+        Advertisement advertisement = new Advertisement(new Task("Chat"));
+        advertisement.AddReward(new Reward("Social", 5f));
+        advertisements.Add(advertisement);
     }
 
     public void SelectAction() {
         // TODO :  ignore for now
+        if (nextTask.Count > 0) {
+            currentTask = nextTask.Dequeue();
+        } else {
+            
+        }
     }
 
     public List<Advertisement> GetAdvertisements()
