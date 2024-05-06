@@ -1,10 +1,10 @@
 using System.Collections.Generic;
 
-public class InteractionSequence : Interaction
+public abstract class InteractionSequence : Interaction
 {
     public Queue<Interaction> subTasks;
 
-    public InteractionSequence(string name) : base(name)
+    public InteractionSequence() : base()
     {
         subTasks = new Queue<Interaction>();
     }

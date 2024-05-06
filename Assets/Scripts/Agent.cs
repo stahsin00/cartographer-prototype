@@ -20,7 +20,7 @@ public class Agent : Entity, IInteractable
 
         advertisements = new List<Advertisement>();
 
-        Advertisement advertisement = new Advertisement(new Interaction("Chat"));
+        Advertisement advertisement = new Advertisement(new ChatInteraction());
         advertisement.AddReward(new Reward("Social", 5f));
         advertisements.Add(advertisement);
     }
