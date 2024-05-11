@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 
+// TODO : not sure if needed lol
 public class NeedManager
 {
     private List<Need> needs;
