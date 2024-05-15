@@ -8,6 +8,7 @@ public static class Pathfinder
     public static List<Vector2Int> FindPath(Vector2Int source, Vector2Int destination, isValidMoveDelegate isValidMove)
     {
         List<Vector2Int> openSet = new List<Vector2Int> { source };
+        HashSet<Vector2Int> closedSet = new HashSet<Vector2Int>();
 
         while (openSet.Count > 0) {
             Vector2Int cur = openSet[0];
@@ -15,10 +16,11 @@ public static class Pathfinder
             // TODO
 
             openSet.Remove(cur);
+            closedSet.Add(cur);
 
             if (cur == destination)
             {
-                return RetracePath(source, destination);
+                return ReconstructPath(source, destination);
             }
 
             foreach (var (dx, dy) in new (int, int)[] { (-1, 0), (1, 0), (0, -1), (0, 1) }) {
@@ -36,7 +38,7 @@ public static class Pathfinder
         return null;
     }
 
-    private static List<Vector2Int> RetracePath(Vector2Int source, Vector2Int destination) {
+    private static List<Vector2Int> ReconstructPath(Vector2Int source, Vector2Int destination) {
         // TODO
         return null;
     }
