@@ -5,12 +5,12 @@ using System.Collections.Generic;
 // TODO
 public class PriorityQueue<T>
 {
-    private List<Tuple<T, int>> heap;
+    private List<Tuple<T, float>> heap;
     private Dictionary<T, int> itemToIndex;
 
     public PriorityQueue()
     {
-        heap = new List<Tuple<T, int>>();
+        heap = new List<Tuple<T, float>>();
         itemToIndex = new Dictionary<T, int>();
     }
 
@@ -19,7 +19,11 @@ public class PriorityQueue<T>
         get { return heap.Count; }
     }
 
-    public void Enqueue(T item, int priority)
+    public bool Contains(T item) {
+        return itemToIndex.ContainsKey(item);
+    }
+
+    public void Enqueue(T item, float priority)
     {
         heap.Add(Tuple.Create(item, priority));
         int index = heap.Count - 1;
@@ -32,7 +36,7 @@ public class PriorityQueue<T>
         if (heap.Count == 0)
             throw new InvalidOperationException("Priority queue is empty");
 
-        Tuple<T, int> frontItem = heap[0];
+        Tuple<T, float> frontItem = heap[0];
         int lastIndex = heap.Count - 1;
         heap[0] = heap[lastIndex];
         heap.RemoveAt(lastIndex);
@@ -42,7 +46,7 @@ public class PriorityQueue<T>
         return frontItem.Item1;
     }
 
-    public void UpdatePriority(T item, int priority)
+    public void UpdatePriority(T item, float priority)
     {
         int index = itemToIndex[item];
         heap[index] = Tuple.Create(item, priority);
@@ -84,7 +88,7 @@ public class PriorityQueue<T>
 
     private void Swap(int i, int j)
     {
-        Tuple<T, int> temp = heap[i];
+        Tuple<T, float> temp = heap[i];
         heap[i] = heap[j];
         heap[j] = temp;
         itemToIndex[heap[i].Item1] = i;
